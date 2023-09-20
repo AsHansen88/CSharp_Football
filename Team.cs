@@ -15,5 +15,4 @@ public class TeamRecord{
     public int Points => Wins * 3 + Draws;
 
 }
-
 */
