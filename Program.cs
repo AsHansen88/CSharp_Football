@@ -5,7 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace StandingsDisplay.cs {
+namespace MyFootBallApp{
+
 
 class Program
 {
@@ -13,6 +14,7 @@ class Program
     {
         StandingsDisplay standingsDisplay = new StandingsDisplay();
           standingsDisplay.DisplayStandings();
+
 }
 }
 }
