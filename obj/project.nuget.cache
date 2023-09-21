@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "54wh2E2cvCKFiZnc6wAG+d1wSKG02upPdTupLaIMPtHZuWivyFBRmdu2BeHpV3P/EHCqJIkJQhTh/0jEJ45Yhg==",
+  "dgSpecHash": "c/oKd9asOVWeC1dyUaQRquMlpqS9uhC3PyGjbU0qLn0BuqgsV+6hyFEfNNbrWa+bg3w5gFTyQP+BePMQNnU2CA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bobby\\Documents\\datamatiker\\C#\\CSharp_Football\\Football.csproj",
+  "projectFilePath": "C:\\Users\\bobby\\Football\\Football.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
