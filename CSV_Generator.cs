@@ -54,7 +54,7 @@ public class CSV_Generator
         Shuffle(combinedData, random);
 
         // Write mixed data to a new CSV file
-        using (StreamWriter writer = new StreamWriter("Setup.csv"))
+        using (StreamWriter writer = new StreamWriter(@"CSV_Files\Setup.csv"))
         {
             foreach (string[] row in combinedData)
             {
