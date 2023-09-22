@@ -14,14 +14,15 @@ class Program
 {
     public static void Main()
     {
-        /*
+        
         StandingsDisplay standingsDisplay = new StandingsDisplay();
           standingsDisplay.DisplayStandings();
-*/
+
+/*
       CSV_Generator csv_generator = new CSV_Generator();
            csv_generator.generator();
            Console.ReadLine();
-                
+  */              
 }
 }
 }

@@ -56,17 +56,17 @@ class CSV_Generator
         Console.WriteLine(string.Join(",", row));
     }
 
-/*
+
     // Write mixed data to a new CSV file
-    using (StreamWriter writer = new StreamWriter(@"CSV_Files\Setup.csv"))
+    using (StreamWriter writer = new StreamWriter(@"CSV_Files\MixedTeam.csv"))
     {
         foreach (string[] row in combinedData)
         {
             writer.WriteLine(string.Join(",", row));
         }
     }
-*/
-    Console.WriteLine($"Data from {csvFiles.Count} CSV files mixed and saved to Setup.csv");
+
+    Console.WriteLine($"Data from {csvFiles.Count} CSV files mixed and saved to MixedTeam.csv");
 }
 catch (Exception ex)
 {
