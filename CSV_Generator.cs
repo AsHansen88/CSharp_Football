@@ -1,3 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using CsvHelper;
+using CsvHelper.Configuration;
+
+
 class CSV_Generator
 {
     public void generator()
@@ -27,7 +35,6 @@ class CSV_Generator
             @"CSV_Files\Rounds\Round-20.csv",
             @"CSV_Files\Rounds\Round-21.csv",
             @"CSV_Files\Rounds\Round-22.csv",
-        
         };
 
         // List to store combined data
@@ -37,42 +44,57 @@ class CSV_Generator
         Random random = new Random();
 
         try
-{
-    // Read data from CSV files and shuffle
-    foreach (string csvFile in csvFiles)
-    {
-        string[] lines = File.ReadAllLines(csvFile);
-        List<string[]> data = lines.Select(line => line.Split(',')).ToList();
-        Shuffle(data, random);
-        combinedData.AddRange(data);
-    }
-
-    // Shuffle the combined data
-    Shuffle(combinedData, random);
-
-    // Print mixed data to the console
-    foreach (string[] row in combinedData)
-    {
-        Console.WriteLine(string.Join(",", row));
-    }
-
-
-    // Write mixed data to a new CSV file
-    using (StreamWriter writer = new StreamWriter(@"CSV_Files\MixedTeam.csv"))
-    {
-        foreach (string[] row in combinedData)
         {
-            writer.WriteLine(string.Join(",", row));
+            var csvConfig = new CsvConfiguration(CultureInfo.InvariantCulture);
+            csvConfig.HasHeaderRecord = true; // Set this to true to treat the first row as the header.
+
+            // Read data from CSV files and shuffle
+            foreach (string csvFile in csvFiles)
+            {
+                using (var reader = new StreamReader(csvFile))
+                using (var csv = new CsvReader(reader, csvConfig))
+                {
+                    var records = csv.GetRecords<string[]>().ToList();
+                    Shuffle(records, random);
+
+                    if (combinedData.Count == 0)
+                    {
+                        combinedData.AddRange(records);
+                    }
+                    else
+                    {
+                        // Skip the header row from subsequent files
+                        combinedData.AddRange(records.Skip(1));
+                    }
+                }
+            }
+
+            // Shuffle the combined data
+            Shuffle(combinedData, random);
+
+            // Print mixed data to the console
+            foreach (string[] row in combinedData)
+            {
+                Console.WriteLine(string.Join(",", row));
+            }
+
+            // Write mixed data to a new CSV file
+            using (var writer = new StreamWriter(@"CSV_Files\MixedTeam.csv"))
+            using (var csv = new CsvWriter(writer, csvConfig))
+            {
+                foreach (string[] row in combinedData)
+                {
+                    csv.WriteRecord(row);
+                }
+            }
+
+            Console.WriteLine($"Data from {csvFiles.Count} CSV files mixed and saved to MixedTeam.csv");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
         }
     }
-
-    Console.WriteLine($"Data from {csvFiles.Count} CSV files mixed and saved to MixedTeam.csv");
-}
-catch (Exception ex)
-{
-    Console.WriteLine($"An error occurred: {ex.Message}");
-}
-
 
     // Fisher-Yates shuffle algorithm to shuffle a list
     static void Shuffle<T>(List<T> list, Random random)
@@ -86,6 +108,4 @@ catch (Exception ex)
             list[j] = temp;
         }
     }
-    }
 }
-
