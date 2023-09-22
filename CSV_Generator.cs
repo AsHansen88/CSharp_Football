@@ -1,38 +1,33 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using FOOTBALL;
-
-public class CSV_Generator
+class CSV_Generator
 {
     public void generator()
     {
         // List of CSV files to combine
         List<string> csvFiles = new List<string>
         {
-            "Round 1.csv",
-            "Round 2.csv",
-            "Round 3.csv",
-            "Round 4.csv",
-            "Round 5.csv",
-            "Round 6.csv",
-            "Round 7.csv",
-            "Round 8.csv",
-            "Round 9.csv",
-            "Round 10.csv",
-            "Round 11.csv",
-            "Round 12.csv",
-            "Round 13.csv",
-            "Round 14.csv",
-            "Round 15.csv",
-            "Round 16.csv",
-            "Round 17.csv",
-            "Round 18.csv",
-            "Round 19.csv",
-            "Round 20.csv",
-            "Round 21.csv",
-            "Round 22.csv",
+            @"CSV_Files\Rounds\Round-1.csv",
+            @"CSV_Files\Rounds\Round-2.csv",
+            @"CSV_Files\Rounds\Round-3.csv",
+            @"CSV_Files\Rounds\Round-4.csv",
+            @"CSV_Files\Rounds\Round-5.csv",
+            @"CSV_Files\Rounds\Round-6.csv",
+            @"CSV_Files\Rounds\Round-7.csv",
+            @"CSV_Files\Rounds\Round-8.csv",
+            @"CSV_Files\Rounds\Round-9.csv",
+            @"CSV_Files\Rounds\Round-10.csv",
+            @"CSV_Files\Rounds\Round-11.csv",
+            @"CSV_Files\Rounds\Round-12.csv",
+            @"CSV_Files\Rounds\Round-13.csv",
+            @"CSV_Files\Rounds\Round-14.csv",
+            @"CSV_Files\Rounds\Round-15.csv",
+            @"CSV_Files\Rounds\Round-16.csv",
+            @"CSV_Files\Rounds\Round-17.csv",
+            @"CSV_Files\Rounds\Round-18.csv",
+            @"CSV_Files\Rounds\Round-19.csv",
+            @"CSV_Files\Rounds\Round-20.csv",
+            @"CSV_Files\Rounds\Round-21.csv",
+            @"CSV_Files\Rounds\Round-22.csv",
+        
         };
 
         // List to store combined data
@@ -41,29 +36,43 @@ public class CSV_Generator
         // Random number generator
         Random random = new Random();
 
-        // Read data from CSV files and shuffle
-        foreach (string csvFile in csvFiles)
-        {
-            string[] lines = File.ReadAllLines(csvFile);
-            List<string[]> data = lines.Select(line => line.Split(',')).ToList();
-            Shuffle(data, random);
-            combinedData.AddRange(data);
-        }
-
-        // Shuffle the combined data
-        Shuffle(combinedData, random);
-
-        // Write mixed data to a new CSV file
-        using (StreamWriter writer = new StreamWriter(@"CSV_Files\Setup.csv"))
-        {
-            foreach (string[] row in combinedData)
-            {
-                writer.WriteLine(string.Join(",", row));
-            }
-        }
-
-        Console.WriteLine($"Data from {csvFiles.Count} CSV files mixed and saved to Setup.csv");
+        try
+{
+    // Read data from CSV files and shuffle
+    foreach (string csvFile in csvFiles)
+    {
+        string[] lines = File.ReadAllLines(csvFile);
+        List<string[]> data = lines.Select(line => line.Split(',')).ToList();
+        Shuffle(data, random);
+        combinedData.AddRange(data);
     }
+
+    // Shuffle the combined data
+    Shuffle(combinedData, random);
+
+    // Print mixed data to the console
+    foreach (string[] row in combinedData)
+    {
+        Console.WriteLine(string.Join(",", row));
+    }
+
+/*
+    // Write mixed data to a new CSV file
+    using (StreamWriter writer = new StreamWriter(@"CSV_Files\Setup.csv"))
+    {
+        foreach (string[] row in combinedData)
+        {
+            writer.WriteLine(string.Join(",", row));
+        }
+    }
+*/
+    Console.WriteLine($"Data from {csvFiles.Count} CSV files mixed and saved to Setup.csv");
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"An error occurred: {ex.Message}");
+}
+
 
     // Fisher-Yates shuffle algorithm to shuffle a list
     static void Shuffle<T>(List<T> list, Random random)
@@ -77,4 +86,6 @@ public class CSV_Generator
             list[j] = temp;
         }
     }
+    }
 }
+
