@@ -1,28 +1,23 @@
-﻿/*// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-*/
+﻿
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-//using CSV_Generator;
 
-namespace FOOTBALL{
-
-
-class Program
+namespace FOOTBALL
 {
-    public static void Main()
+    class Program
     {
-        
-        StandingsDisplay standingsDisplay = new StandingsDisplay();
-          standingsDisplay.DisplayStandings();
+        public static void Main()
+        {
+          
+            StandingsDisplay standingsDisplay = new StandingsDisplay();
+            standingsDisplay.DisplayStandings();
 
-/*
-      CSV_Generator csv_generator = new CSV_Generator();
-           csv_generator.generator();
-           Console.ReadLine();
-  */              
-}
-}
+            TeamProcessor.PrintTeam();
+
+            Team team = new Team();
+            team.PrintTeamInfo();
+        }
+    }
 }
