@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Oxa6qLfe13UauQVBn/Ler0sHzsPJVl5QNWGHBaxuH8zO3F6iD6+YBgWa/WGuF9hwPbaFsvSip9iYjdAKJHeHQw==",
+  "dgSpecHash": "2AYIOP6vxjbzpde3a3kJt3zvr2fNVKJBIuUwt6dFfPHqJwGxzBRJ78+X0HIKjQsh8vjtJFOfnDUPysZVtY/Cfg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bobby\\Football\\Football.csproj",
+  "projectFilePath": "C:\\Users\\bobby\\Documents\\datamatiker\\C#\\CSharp_Football\\CSharp_Football\\Football.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bobby\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512"
   ],

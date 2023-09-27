@@ -1,6 +1,10 @@
-class TeamProcessor
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+public class TeamProcessor
 {
-public static void PrintTeam()
+    public static List<Team> GetTeams()
     {
         string filePath = @"CSV_Files\Teams.csv";
         List<Team> teams = new List<Team>();
@@ -13,6 +17,7 @@ public static void PrintTeam()
                 {
                     var line = reader.ReadLine();
                     var values = line.Split(',');
+
                     if (values.Length == 11) // Check if the CSV has the correct number of fields
                     {
                         Team team = new Team
@@ -25,32 +30,19 @@ public static void PrintTeam()
                             Wins = int.Parse(values[5]),
                             Draws = int.Parse(values[6]),
                             Losses = int.Parse(values[7]),
-                            Goalsfor = int.Parse(values[8]),
-                            GoalsAgainst = int.Parse(values[9])
+                            Goalsfor = int.Parse(values[8]), // Corrected property name
+                            GoalsAgainst = int.Parse(values[9]) // Corrected property name
                         };
                         teams.Add(team);
                     }
                 }
             }
-
-            // Print the table of team information
-            PrintTable(teams);
+            return teams;
         }
         else
         {
             Console.WriteLine("File doesn't exist");
-        }
-
-        Console.ReadLine();
-    }
-
-    // Add a method to print the table
-    static void PrintTable(List<Team> teams)
-    {
-        Console.WriteLine("Team Information Table:\n");
-        foreach (var team in teams)
-        {
-            team.PrintTeamInfo();
+            return null; // Return null if the file doesn't exist
         }
     }
 }

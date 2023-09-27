@@ -5,7 +5,7 @@ class StandingsDisplay {
 public void DisplayStandings(){
 
 
-string filePath = @"CSV_Files\MixedTeam.csv";
+string filePath = @"CSV_Files\Teams.csv";
         StreamReader reader = null;
 
         if (File.Exists(filePath))

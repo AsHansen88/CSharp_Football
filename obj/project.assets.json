@@ -54,11 +54,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bobby\\Football\\Football.csproj",
+      "projectUniqueName": "C:\\Users\\bobby\\Documents\\datamatiker\\C#\\CSharp_Football\\CSharp_Football\\Football.csproj",
       "projectName": "Football",
-      "projectPath": "C:\\Users\\bobby\\Football\\Football.csproj",
+      "projectPath": "C:\\Users\\bobby\\Documents\\datamatiker\\C#\\CSharp_Football\\CSharp_Football\\Football.csproj",
       "packagesPath": "C:\\Users\\bobby\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bobby\\Football\\obj\\",
+      "outputPath": "C:\\Users\\bobby\\Documents\\datamatiker\\C#\\CSharp_Football\\CSharp_Football\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bobby\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -106,7 +106,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.413\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.414\\RuntimeIdentifierGraph.json"
       }
     }
   }

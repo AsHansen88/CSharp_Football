@@ -15,6 +15,8 @@ public class Team
     public int Losses { get; set; }
     public int Goalsfor { get; set; }
     public int GoalsAgainst { get; set; }
+
+    public string opposingTeam {get; set;}
     public int GoalsDifference => Goalsfor - GoalsAgainst;
     public int Points => Wins * 3 + Draws;
     public Queue<char> Streak { get; private set; } = new Queue<char>(5);
@@ -59,8 +61,10 @@ public class Team
     // Add a method to print team information
     public void PrintTeamInfo()
     {
+        Console.WriteLine($"{Abbreviation} {Name} {SpecialRanking} {Position} {GamesPlayed} {Wins} {Draws} {Losses} {Goalsfor} {GoalsAgainst} {GoalsDifference} {Points} {GetStreakDisplay}" );
+        /*
         Console.WriteLine($"Abbreviation: {Abbreviation}");
-        Console.WriteLine($"Name: {Name}");
+        Console.WriteLine($"name: {Name}");
         Console.WriteLine($"Special Ranking: {SpecialRanking}");
         Console.WriteLine($"Position: {Position}");
         Console.WriteLine($"Games Played: {GamesPlayed}");
@@ -73,5 +77,7 @@ public class Team
         Console.WriteLine($"Points: {Points}");
         Console.WriteLine($"Streak: {GetStreakDisplay()}");
         Console.WriteLine();
+    }
+    */
     }
 }
